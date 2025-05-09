@@ -45,6 +45,21 @@ public class ReadData{
         return columns;
     }
 
+    //this returns the mean of each columns of data passed in
+    //the mean is the sum of the values divided by the number 
+    //of values
+    public double[] mean(double[][] xy){
+        double[] sum = new double[xy.length];
+        double[] mean = new double[xy.length];
+        for (int i = 0; i < xy.length; i++) {
+            for (double d : xy[i]) {
+                sum[i] += d;
+            }
+            mean[i] = sum[i]/xy[i].length;
+        }
+        return mean;
+    }
+
     //this returns the standard deviation of the x and y column
     //of data passed in
     //the standard deviation is the square root of the variance
@@ -67,21 +82,6 @@ public class ReadData{
         }
 
         return variance; //sample variance!
-    }
-    
-    //this returns the mean of each columns of data passed in
-    //the mean is the sum of the values divided by the number 
-    //of values
-    public double[] mean(double[][] xy){
-        double[] sum = new double[xy.length];
-        double[] mean = new double[xy.length];
-        for (int i = 0; i < xy.length; i++) {
-            for (double d : xy[i]) {
-                sum[i] += d;
-            }
-            mean[i] = sum[i]/xy[i].length;
-        }
-        return mean;
     }
 
     //this returns the values of each column in standard units
